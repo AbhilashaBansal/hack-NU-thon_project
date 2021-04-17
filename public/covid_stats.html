@@ -1,0 +1,128 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="homepage.css" type="text/css" rel="stylesheet"/>
+    <title>Covid Tracking</title>
+    <link rel='icon'
+    href='https://img.etimg.com/thumb/msid-75189010,width-300,imgsize-152054,,resizemode-4,quality-100/lockodwn-agencies.jpg'
+    type='image/gif' />
+    <!-- JS Script-->
+    <!-- JQuery -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/js/mdb.min.js"></script>
+
+    <!-- CSS Script -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.14.1/css/mdb.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="card-body text-white fonth" style="text-align: center; background-color:#a9eaf3; border-bottom: 4px rgb(102, 175, 235) solid;">
+        <h1 class= "padh">COVID-19 STATISTICS IN INDIA</h1>
+      </div>
+    <div class="container">
+        <p class="grey-text center">keeping a track of covid-19 cases</p>
+        
+        <div class=" row row-space">
+            <div class="col-md-8">
+        <div class="col-md" id="country">
+        </div>
+            
+        </div>
+
+    <!-- Expand  -->
+      <div id="graph-container" class="graph-container">
+        <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-6">
+                
+                <div class="purple-gradient-rot color-block grad-block width hoverable card row-space">
+                    <div class="row">
+                        <div class="col-4">
+                            <h1 class="display-5 white-text responsive font-size" id="tot-conf"></h1>
+                            <p class="sub-head white-text text-size">Confirmed Cases</p>  
+                        </div>
+                        <div class="col-8">
+                            <canvas class="chart" id="confirmed" data-stat="confirmed" data-label="# of Cases"></canvas>
+                        </div>
+                    </div>        
+                </div>
+                
+                
+            </div>
+      <!-- Grid column -->
+      <!-- Grid column -->
+            <div class="col-md-6">
+               
+                    <div class="blue-gradient-rot color-block grad-block width hoverable card grow-left row-space" >
+                        <div class="row">
+                            <div class="col-4">
+                                <h1 class="display-5 white-text font-size" id="tot-rec"></h1>
+                                <p class="sub-head white-text text-size">Recovered</p> 
+                            </div>
+                            <div class="col-8">
+                                <canvas class="chart" id="recovered" data-stat="recovered" data-label="# of Recoveries"></canvas>
+                            </div>
+                        </div>      
+                    </div>    
+                
+            </div>
+      <!-- Grid column -->
+        </div>
+
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-6 ">
+                
+                    <div class="peach-gradient-rot color-block grad-block hoverable card row-space" >
+                        <div class="row">
+                            <div class="col-4 ">
+                                <h1 class="display-5 white-text font-size" id="tot-deaths"></h1>
+                                <p class="sub-head white-text text-size">Deaths</p>
+                            </div>
+                            <div class="col-8">
+                                <canvas class="chart" id="deaths" data-stat="deaths" data-label="# of Deaths"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+            <div class="col-md-6 ">
+                <div class="card" >
+                    <img src="https://image.freepik.com/free-vector/covid19-pandemic-infographic-with-prevention-methods_24877-63758.jpg" class="card-img-top" alt="..." height="300">
+                    <div class="card-body">
+                      <p class="card-text extra fontc">Prevention is better than cure </p>
+                    </div>
+                  </div>
+        </div>
+            <img class="counter" src="https://hitwebcounter.com/counter/counter.php?page=7213730&style=0008&nbdigits=5&type=page&initCount=0" title="User Stats" Alt="PHP Hits Count"  border="0" >
+  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/countup@1.8.2/dist/countUp.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script src='graph.js'></script>
+    <script src='scroll.js'></script>
+    
+    
+</body>
+</html>

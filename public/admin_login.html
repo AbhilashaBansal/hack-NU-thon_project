@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='icon'
+    href='https://khn.org/wp-content/uploads/sites/2/2020/05/GettyImages-1216013837.jpg?w=1024' type='image/gif' />
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <link href="./css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Cairo&family=EB+Garamond:wght@700&family=Kalam&family=Special+Elite&family=Sriracha&display=swap" rel="stylesheet">
+    <title>Admin Login</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-brand mr-auto logo" href="#"><img src="./image/logo.jpeg" height="40" width="60"></div>           
+            <div class=" navbar-collapse" id="Navbar">
+                <ul class="navbar-nav mr-auto justify-content-center ">
+                    <li class="nav-item active"><a class="nav-link" href="./"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./covid_stats.html"><span class="fa  fa-info fa-lg"></span> COVID Stats</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./index.html#help"><span class="fa fa-phone-square fa-lg"></span> Helpline</a></li>
+                </ul>
+                
+                <span class="navbar-text">
+                    <a href="./admin_login.html" data-target="#loginModal" style="text-decoration: none;">
+                    <span class="fa fa-sign-in"></span> Admin Login</a>
+                </span>
+                <div class="navbar-brand ml-4 mr-0 " href="#"><img class="img1" src="image/img2.png" height="60" width="60"></div>
+            </div>
+                    
+        </div>
+    </nav>
+    <br><br><br><br><br>
+    <div class="container">
+        <h4>ADMIN LOGIN</h4>
+    </div>
+
+    <div class="container" id="faram">
+        <div class="col-md-8" style="background-color: lavenderblush; padding: 2%;">
+        
+            <form action="/admin_login/" method="POST" name="admin-form">
+                <div class="form-group">
+                <label for="email">Email: </label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="enter admin email">
+                </div>
+                <div class="form-group">
+                    <label for="pass">Password: </label>
+                    <input type="password" class="form-control" id="pass" name="pass" placeholder="enter admin password">
+                </div>
+                <button type="submit" class="btn btn-primary" formaction="/admin_login" formmethod="POST">Login</button>
+            </form>
+            <br>
+        </div>
+    </div>
+</body>
+
+</html>
