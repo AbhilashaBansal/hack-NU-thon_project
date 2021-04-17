@@ -1,0 +1,102 @@
+
+
+.grad-block {
+    border-radius: 10px;
+    padding: 15px;
+}
+.card .card-body .card-text {
+    /* font-size: 20px; */
+    font-weight: 400;
+    color: #747373;
+}
+.extra
+{
+    text-align: center;
+}
+.padh
+{
+    margin-top: 10px;
+}
+.fonth
+{
+    font-family: 'Anton', sans-serif;
+}
+.fontc
+{
+    font-family: 'Lobster', cursive;
+}
+.heading {
+    text-align: center    
+}
+
+.header {
+    padding: 25px 0 10px 0;
+}
+
+.row-space {
+    margin: 25px;
+}
+
+.card {
+    cursor: pointer;
+    
+}
+
+.center {
+    text-align: center;
+}
+
+
+.last-update {
+    padding: .375rem 1.75rem .375rem .75rem;
+}
+
+.sub-head {
+    font-weight: 300;
+    font-size: 16px;
+    padding-left: 5px;
+}
+
+.peach-gradient-rot {
+    background:linear-gradient(40deg, #fc6262, #ffd86f) !important
+}
+
+.purple-gradient-rot {
+    background: linear-gradient(40deg, #7873f5, #ff6ec4) !important;
+}
+
+.blue-gradient-rot {
+    background: linear-gradient(40deg,#303f9f, #45cafc) !important;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+.counter {
+    display: none;
+    margin: 50px auto;
+    height: 20px;
+    
+}
+
+
+.font-size {
+    font-size: 2.2vw;
+}
+
+.text-size {
+    font-size: 1.5vw;
+    white-space: nowrap
+}
+
+@media (max-width: 700px) {
+    .font-size {
+        font-size: 10vw;
+        white-space: nowrap
+    }
+    .text-size {
+        font-size: 3vw;
+        white-space: nowrap
+    }
+}
