@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel='icon'
+    href='https://khn.org/wp-content/uploads/sites/2/2020/05/GettyImages-1216013837.jpg?w=1024' type='image/gif' />
+    
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+      
+  <link href="./css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Cairo&family=EB+Garamond:wght@700&family=Kalam&family=Special+Elite&family=Sriracha&display=swap" rel="stylesheet">
+
+  <style>
+    .card-img-top {
+      max-height: 150px;
+    }
+  </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-brand mr-auto logo" href="#"><img src="./image/logo.jpeg" height="40" width="60"></div>           
+            <div class=" navbar-collapse text-center" id="Navbar">
+                <ul class="navbar-nav mr-auto justify-content-center ">
+                    <li class="nav-item active"><a class="nav-link" href="./"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./covidstats.html"><span class="fa  fa-info fa-lg"></span> COVID Stats</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./index.html#help"><span class="fa fa-phone-square fa-lg"></span> Helpline</a></li>
+                </ul>
+                
+                <span class="navbar-text">
+                    <a href="./logout" style="text-decoration: none;">
+                    <span class="fa fa-sign-in"></span> Log Out</a>
+                </span>
+                <div class="navbar-brand ml-4 mr-0 " href="#"><img class="img1" src="image/img2.png" height="60" width="60"></div>
+            </div>
+                    
+        </div>
+    </nav>
+    <br><br><br><br>
+    
+    <div class="container" id="pehla-div">
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills me-3 sidebar" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <button class="nav-link active" id="v-pills-hosps-tab" data-bs-toggle="pill" data-bs-target="#v-pills-hosps" type="button" role="tab" aria-controls="v-pills-hosps" aria-selected="true">Hospitals</button>
+              <button class="nav-link" id="v-pills-addhosp-tab" data-bs-toggle="pill" data-bs-target="#v-pills-addhosp" type="button" role="tab" aria-controls="v-pills-addhosp" aria-selected="false">Add A Hospital</button>
+            </div>
+            <div class="tab-content" id="v-pills-tabContent" style="width: 80%; border: black 1px solid;">
+              <div class="tab-pane fade show active" id="v-pills-hosps" role="tabpanel" aria-labelledby="v-pills-hosps-tab">
+                  <h5>ALL HOSPITALS</h5>
+                  <div id="hosp-list" class="row">
+                    <!-- dynamically append hospital cards here in this div  -->
+                  </div>
+              </div>
+
+              <!-- add a hospital form  -->
+              <div class="tab-pane fade" id="v-pills-addhosp" role="tabpanel" aria-labelledby="v-pills-addhosp-tab">
+                <form action="/add_hospital" method="POST" name="add_hospital" id="add_hosp_form">
+                  <div class="form-group">
+                      <label for="name">Name: </label>
+                      <input type="text" class="form-control" id="name" name="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="locality">Locality: </label>
+                    <input type="text" class="form-control" id="locality" name="locality">
+                </div>
+                  <div class="form-group">
+                      <label for="city">City: </label>
+                      <input type="text" class="form-control" id="city" name="city">
+                  </div>
+                  <div class="form-group">
+                      <label for="phone">Phone No: </label>
+                      <input type="number" class="form-control" id="phone" name="phone">
+                  </div>
+                  <div class="form-group">
+                      <label for="contact_person">Contact Person: </label>
+                      <input type="text" class="form-control" id="contact_person" name="contact_person">
+                  </div>
+                  <div class="form-group">
+                    <label for="amb_phone">Ambulance Phone No: </label>
+                    <input type="number" class="form-control" id="amb_phone" name="amb_phone">
+                  </div>
+                  <div class="form-group">
+                    <label for="bed_cnt">Bed Count: </label>
+                    <input type="number" class="form-control" id="bed_cnt" name="bed_cnt">
+                  </div>
+                  <button type="button" class="btn btn-primary" id="add-hosp-btn" formaction="/add_hospital" formmethod="POST">ADD HOSPITAL</button>
+              </form>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="doosra-div">
+      <button class="btn btn-primary" id="go_back" style="margin-bottom: 1%">Go Back</button>
+      <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3 sidebar" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <button class="nav-link active" id="v-pills-hosp_det-tab" data-bs-toggle="pill" data-bs-target="#v-pills-hosp_det" type="button" role="tab" aria-controls="v-pills-hosp_det" aria-selected="true">Hospital Details</button>
+          <button class="nav-link" id="v-pills-vac_app-tab" data-bs-toggle="pill" data-bs-target="#v-pills-vac_app" type="button" role="tab" aria-controls="v-pills-vac_app" aria-selected="false">Vaccination Appointments</button>
+          <button class="nav-link" id="v-pills-bed_req-tab" data-bs-toggle="pill" data-bs-target="#v-pills-bed_req" type="button" role="tab" aria-controls="v-pills-bed_req" aria-selected="true">Bed Requests</button>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent" style="width: 80%; border: black 1px solid;">
+          <div class="tab-pane fade show active" id="v-pills-hosp_det" role="tabpanel" aria-labelledby="v-pills-hosp_det-tab">
+              <h4 id="h1" style="margin: 2% 0; background: #E8DF8D; padding: 2%;"></h4>
+              <div id="hosp-list" class="row" style="margin: 2%;">
+                <!-- dynamically append hospital details here in this div  -->
+                <div class="col-md-6" style="background: #BFF7FB; box-shadow: 5px 5px 3px grey; padding: 2%;">
+                  <p id="loc">Locality: </p>
+                  <p id="state">State: </p>
+                  <p id="phone1">Phone: </p>
+                  <p id="contact_person1">Contact Person: </p>
+                  <p id="amb_phone1">Ambulance Phone No. : </p>
+                </div>
+                <div class="col-md-6" style="background: #FAE7FD; box-shadow: 5px 5px 3px grey; padding: 2%;">
+                  <div style="margin:2%;">
+                    <h5>Add More Slots for Vaccination</h5>
+                    <form action="/add_slots" method="POST" name="add_slots">
+                        <div class="form-group">
+                            <label for="date">Date: </label>
+                            <input type="date" class="form-control" id="date" name="date">
+                        </div>
+                        <div class="form-group">
+                            <label for="hosp_id">Hospital ID: </label>
+                            <input type="number" class="form-control hosp_id" id="hosp_id" name="hosp_id" readonly>
+                        </div>
+                        <button type="button" id="add-slots-btn" class="btn btn-primary" formaction="/add_slots" formmethod="POST">ADD SLOTS</button>
+                    </form>
+                  </div>
+                  <div style="margin:2%;">
+                    <h5>Update Bed Count</h5>
+                    <form action="/add_slots" method="POST" name="add_slots">
+                        <div class="form-group">
+                            <label for="bed_cnt1">Bed Count: </label>
+                            <input type="number" class="form-control" id="bed_cnt1" name="bed_cnt1">
+                        </div>
+                        <div class="form-group">
+                            <label for="hosp_id">Hospital ID: </label>
+                            <input type="number" class="form-control hosp_id" id="hosp_id" name="hosp_id" readonly>
+                        </div>
+                        <button type="button" id="bed-cnt-btn" class="btn btn-primary" formaction="/update_bed_cnt" formmethod="POST">UPDATE</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="tab-pane fade" id="v-pills-vac_app" role="tabpanel" aria-labelledby="v-pills-vac_app-tab"> 
+            <h5>VACCINATION APPOINTMENTS</h5>
+            <div id="div_1_1">
+              here
+            </div>
+          </div>
+          <div class="tab-pane fade" id="v-pills-bed_req" role="tabpanel" aria-labelledby="v-pills-bed_req-tab"> 
+            <h5>BED REQUESTS</h5>
+            <div id="div_1_2">
+              here
+            </div>
+          </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br>
+    <footer class="site-footer">
+      <div class="container ">
+        <div class="row">
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="https://www.mohfw.gov.in/" target="_blank">Covid-19 India</a></li>
+              <li><a href="#help">Helpline</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-6">
+              <!-- <h6>About</h6> -->
+              <img src="logo-footer.png" alt="" class="logo-footer">      
+          </div>
+  
+          <div class="col-xs-6 col-md-3">
+  
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+          <a href="#">AB</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+
+<script src="./scripts/ad_dash.js"></script>
+<script>
+  
+</script>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel='icon'
+    href='https://khn.org/wp-content/uploads/sites/2/2020/05/GettyImages-1216013837.jpg?w=1024' type='image/gif' />
+    
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+      
+  <link href="./css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arvo&family=Cairo&family=EB+Garamond:wght@700&family=Kalam&family=Special+Elite&family=Sriracha&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-sm fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-brand mr-auto logo" href="#"><img src="./image/logo.jpeg" height="40" width="60"></div>           
+            <div class=" navbar-collapse text-center" id="Navbar">
+                <ul class="navbar-nav mr-auto justify-content-center ">
+                    <li class="nav-item active"><a class="nav-link" href="./"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./covidstats.html"><span class="fa  fa-info fa-lg"></span> COVID Stats</a></li>
+                    <li class="nav-item "><a class="nav-link" href="./index.html#help"><span class="fa fa-phone-square fa-lg"></span> Helpline</a></li>
+                </ul>
+                
+                <span class="navbar-text">
+                    <a href="./logout" style="text-decoration: none;">
+                    <span class="fa fa-sign-in"></span> Log Out</a>
+                </span>
+                <div class="navbar-brand ml-4 mr-0 " href="#"><img class="img1" src="image/img2.png" height="60" width="60"></div>
+            </div>
+                    
+        </div>
+    </nav>
+    <br><br><br><br>
+    
+    <div class="container">
+        <div class="d-flex align-items-start">
+            <div class="nav flex-column nav-pills me-3 sidebar" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              <button class="nav-link active" id="v-pills-profile-tab" data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="true">Profile</button>
+              <button class="nav-link" id="v-pills-vacapp-tab" data-bs-toggle="pill" data-bs-target="#v-pills-vacapp" type="button" role="tab" aria-controls="v-pills-vacapp" aria-selected="false">Book Vaccination Appointment</button>
+              <button class="nav-link" id="v-pills-hospbed-tab" data-bs-toggle="pill" data-bs-target="#v-pills-hospbed" type="button" role="tab" aria-controls="v-pills-hospbed" aria-selected="false">Request A Bed</button>
+            </div>
+            <div class="tab-content" id="v-pills-tabContent" style="width: 80%; border: black 1px solid;">
+              <div class="tab-pane fade show active" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                  <div style="margin: 2%; background: lavender; padding: 2%; box-shadow: 5px 5px 3px grey;">
+                    <h5>Profile</h5>
+                    <div id="pdiv_1">
+
+                    </div>
+                  </div>
+                  <div style="margin: 2%; background: lavender; padding: 2%; box-shadow: 5px 5px 3px grey;">
+                    <h5>Vaccination Appointments</h5>
+                    <div id="pdiv_2">
+                      <p>None</p>
+                    </div>
+                  </div>
+                  <div style="margin: 2%; background: lavender; padding: 2%; box-shadow: 5px 5px 3px grey;">
+                    <h5>Bed Requests</h5>
+                    <div id="pdiv_3">
+                      <p>None</p>
+                    </div>
+                  </div>
+              </div>
+              <div class="tab-pane fade" id="v-pills-vacapp" role="tabpanel" aria-labelledby="v-pills-vacapp-tab">
+                <h5>ALL HOSPITALS</h5>
+                <div id="hosp-list-1" class="row">
+                  <!-- dynamically append hospital cards here in this div  -->
+                  <!-- Button trigger modal -->
+
+                  <!-- Modal -->
+                </div>
+              </div>
+              <div class="tab-pane fade" id="v-pills-hospbed" role="tabpanel" aria-labelledby="v-pills-hospbed-tab">
+                <h5>ALL HOSPITALS</h5>
+                <div id="hosp-list-2" class="row">
+                  <!-- dynamically append hospital cards here in this div  -->
+                </div>
+              </div>
+              </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    <br><br>
+    <footer class="site-footer">
+      <div class="container ">
+        <div class="row">
+          <div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li><a href="#">Home</a></li>
+              <li><a href="https://www.mohfw.gov.in/" target="_blank">Covid-19 India</a></li>
+              <li><a href="./registration.html">Apply for Vaccine</a></li>
+              <li><a href="./registration.html">Request A Bed</a></li>
+              <li><a href="#help">Helpline</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-12 col-md-6">
+              <!-- <h6>About</h6> -->
+              <img src="logo-footer.png" alt="" class="logo-footer">      
+          </div>
+  
+          <div class="col-xs-6 col-md-3">
+  
+          </div>
+        </div>
+        <hr>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by
+          <a href="#">AB</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+
+<script src="./scripts/dash.js"></script>
+<script>
+  
+</script>
+</html>
