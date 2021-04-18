@@ -66,15 +66,38 @@ function show_bed_reqs_hosp(id) {
                     ele.append(
                         `<div style="margin: 1%; background: lavenderblush; padding: 2%;" class="form-group">
                             <label for="instructions">Instructions: </label>
-                            <input type="text" class="form-control" id="instructions" name="instructions">
+                            <input type="text" class="form-control" id="${"instructions_" + item.id.toString()}" name="instructions">
                         </div>
-                        <button type="button" style="margin: 1%;" class="btn btn-primary" id=${item.email.split("@")[0] + " "}>Mark as Approved</button>`
+                        <button type="button" style="margin: 1%;" class="btn btn-primary" id="${"bedreq"+item.id.toString()}">Mark as Approved</button>
+                        <button type="button" style="margin: 1%;" class="btn btn-primary" id="${"bedreq_"+item.id.toString()}">Mark as Rejected</button>`
                     );
-                    let idstr = "#"+item.email.split("@")[0] + " ";
+                    let idstr = "#bedreq"+item.id.toString();
+                    console.log(idstr);
                     $(idstr).click(function(e){
                         e.preventDefault();
-                        let instructions = $("#instructions").val();
-                        $.post('/complete_bed', {email: item.email, instructions}, (data, status)=>{
+                        let instructions = $("#instructions "+item.id.toString()).val();
+                        $.post('/complete_bed', {email: item.email, instructions, id: item.id}, (data, status)=>{
+                            console.log(status, data);
+                            if(status=="success"){
+                                alert("Done!");
+                                document.location.href = './admin_dashboard.html';
+                            }
+                            else{
+                                alert("Some error occured!");
+                            }
+                        })
+                    })
+                    let idstr2 = "#bedreq_"+item.id.toString();
+                    console.log(idstr2);
+                    $(idstr2).click(function(e){
+                        e.preventDefault();
+                        console.log("hello mate");
+                        let st = "#instructions_"+item.id.toString();
+                        console.log(st);
+                        let instructions = $(st).val();
+                        console.log(instructions);
+                        $.post('/deny_bed', {email: item.email, instructions, id: item.id}, (data, status)=>{
+                            console.log("in post req");
                             console.log(status, data);
                             if(status=="success"){
                                 alert("Done!");

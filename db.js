@@ -142,8 +142,7 @@ const Bed_Reqs = db.define('bed_reqs', {
 
     email: {
         type: sequelize.STRING(60),
-        allowNull: false,
-        primaryKey: true
+        allowNull: false
     },
 
     hospital_id: {
@@ -177,7 +176,7 @@ const Questions = db.define('questions', {
 
     posted_by_name: {
         type: sequelize.STRING(60), // put username
-        allowNull: false,
+        // allowNull: false,
     },
 
     posted_by_email: {
@@ -187,10 +186,10 @@ const Questions = db.define('questions', {
 
     date: {
         type: sequelize.DATEONLY,
-        allowNull: false
+        defaultValue: sequelize.NOW
     },
 
-    question_text: {
+    question: {
         type: sequelize.TEXT,
         allowNull: false
     },

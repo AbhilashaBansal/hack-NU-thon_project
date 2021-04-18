@@ -26,6 +26,9 @@ app.use("/", express.static(__dirname + '/public'));
 // signup
 app.post('/signup', (req,res)=>{
     if(req.body.name && req.body.city && req.body.dob && req.body.phone && req.body.email && req.body.aadhaar && req.body.pass){
+        // if(req.session) req.session.destroy((err)=>{
+        //     if (err) throw err;
+        // })
         Users.create({
             name: req.body.name,
             city: req.body.city,
@@ -56,6 +59,9 @@ app.post('/signup', (req,res)=>{
 // login
 app.post('/login', (req,res)=>{
     if(req.body.email && req.body.pass){
+            // if(req.session) req.session.destroy((err)=>{
+            //     if (err) throw err;
+            // })
             Users.findOne({
                 where: {email: req.body.email}
             }).then((user)=>{
@@ -121,6 +127,9 @@ app.get('/logout', (req, res)=>{
 // admin login
 app.post('/admin_login', (req,res)=>{
     if(req.body.email && req.body.pass){
+        // if(req.session) req.session.destroy((err)=>{
+        //     if (err) throw err;
+        // })
         if(req.body.email=="abhibansal529@gmail.com" && req.body.pass=="abhilasha"){
             req.session.admin_logged_in = true;
             res.sendFile(__dirname + '/public/admin_dashboard.html');
@@ -131,6 +140,14 @@ app.post('/admin_login', (req,res)=>{
     }
     else{
         return res.render('error', {error: "Please enter all details to login!"});
+    }
+})
+app.get('/admin_logged_in', (req, res)=>{
+    if(req.session.admin_logged_in){
+        return res.send({val: true});
+    }
+    else{
+        return res.send({val: false});
     }
 })
 
@@ -158,9 +175,39 @@ app.post('/add_hospital', (req,res)=>{
     }
 })
 
+// add a question
+app.post('/add_question', (req,res)=>{
+    // insert check to see for repeat
+    if(req.body.email && req.body.question){
+        Questions.create({
+            posted_by_email: req.body.email,
+            question: req.body.question
+        }).then((user)=>{
+            return res.send({val: "success"});
+        }).catch((error)=>{
+            //throw error;
+            return res.render('error', {error, text: "Some error occured, while adding! Please try again."});
+        })
+    }
+    else{
+        return res.render('error', {error: "Please enter all details to add a question!"});
+    }
+})
+
 // show all hospitals
 app.get('/show_hospitals', (req,res)=>{
     Hospital.findAll()
+    .then((data)=>{
+        return res.send(data);
+    })
+    .catch((err)=>{
+        return res.render('error', {err});
+    })
+})
+
+// show all ques
+app.get('/all_ques', (req,res)=>{
+    Questions.findAll()
     .then((data)=>{
         return res.send(data);
     })
@@ -471,12 +518,13 @@ app.post('/complete_vac', (req,res)=>{
     }
 })
 
+// HANDLE UPDATION OF BEDS HERE (CORRECT)
 // mark bed req as approved
 app.post('/complete_bed', (req,res)=>{
-    if(req.body.email && req.body.instructions){
+    if(req.body.email && req.body.instructions && req.body.id){
         Bed_Reqs.update({ status: "Approved", instructions: req.body.instructions}, {
             where: {
-                email: req.body.email
+                id: req.body.id
             }
         })
         .then(()=>{
@@ -488,6 +536,26 @@ app.post('/complete_bed', (req,res)=>{
     }
     else{
         return res.render('error', {error: "Please enter all details to approve bed req!"});
+    }
+})
+
+// mark request as rejected
+app.post('/deny_bed', (req,res)=>{
+    if(req.body.email && req.body.instructions && req.body.id){
+        Bed_Reqs.update({ status: "Denied", instructions: req.body.instructions}, {
+            where: {
+                id: req.body.id
+            }
+        })
+        .then(()=>{
+            return res.send("Success!");
+        })
+        .catch((err)=>{
+            return res.render('error', {error: "here3"});
+        });
+    }
+    else{
+        return res.render('error', {error: "Please enter all details to deny bed req!"});
     }
 })
 
