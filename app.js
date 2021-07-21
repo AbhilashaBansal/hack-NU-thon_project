@@ -332,7 +332,7 @@ app.post('/req_bed', (req,res)=>{
         })
         .then((hosp)=>{
             if(hosp.bed_count<1){
-                return red.send({val: "Error no beds available here!"}); //handle such errors properly later
+                return res.send({val: "Error no beds available here!"}); //handle such errors properly later
             }
             else{
                 Bed_Reqs.create({
@@ -340,12 +340,12 @@ app.post('/req_bed', (req,res)=>{
                     hospital_id: req.body.hospital_id,
                     symptoms: req.body.symptoms
                 }).then((bed_req)=>{
-                    let bc = hosp.bed_count-1;
-                    Hospital.update({ bed_count: bc}, {
-                        where: {
-                            id: req.body.hospital_id
-                        }
-                    });
+                    // let bc = hosp.bed_count-1;
+                    // Hospital.update({ bed_count: bc}, {
+                    //     where: {
+                    //         id: req.body.hospital_id
+                    //     }
+                    // });
                     return res.send("Success!");
                 }).catch((error)=>{
                     //throw error;
@@ -431,28 +431,7 @@ app.post('/delete_bed_req', (req,res)=>{
             where: {email: req.body.user_email}
         })
         .then(()=>{
-            Hospital.findOne({where: {
-                id: req.body.hospital_id
-            }})
-            .then((hosp)=>{
-                let bc = hosp.bed_count+1;
-                Hospital.update({ bed_count: bc}, {
-                    where: {
-                        id: req.body.hospital_id
-                    }
-                })
-                .then(()=>{
-                    return res.send("Success!");
-                })
-                .catch((err)=>{
-                    return res.render('error', {error: "here3"});
-                });
-                
-            })
-            .catch((err)=>{
-                return res.render('error', {error: "here2"});
-            })
-
+            return res.send("Success!");
         })
         .catch((error)=>{
             return res.render('error', {error: "here"});
@@ -521,13 +500,34 @@ app.post('/complete_vac', (req,res)=>{
 // HANDLE UPDATION OF BEDS HERE (CORRECT)
 // mark bed req as approved
 app.post('/complete_bed', (req,res)=>{
-    if(req.body.email && req.body.instructions && req.body.id){
+    if(req.body.email && req.body.instructions && req.body.id && req.body.hosp_id){
         Bed_Reqs.update({ status: "Approved", instructions: req.body.instructions}, {
             where: {
                 id: req.body.id
             }
         })
         .then(()=>{
+            Hospital.findOne({where: {
+                id: req.body.hosp_id
+            }})
+            .then((hosp)=>{
+                let bc = hosp.bed_count-1;
+                Hospital.update({ bed_count: bc}, {
+                    where: {
+                        id: req.body.hosp_id
+                    }
+                })
+                .then(()=>{
+                    return res.send("Success!");
+                })
+                .catch((err)=>{
+                    return res.render('error', {error: "here3"});
+                });
+                
+            })
+            .catch((err)=>{
+                return res.render('error', {error: "here2"});
+            })
             return res.send("Success!");
         })
         .catch((err)=>{
@@ -559,8 +559,9 @@ app.post('/deny_bed', (req,res)=>{
     }
 })
 
-const port = process.env.PORT || 3000;
+
 //syncing db
+const port = process.env.PORT || 4444;
 db.sync()
     .then(()=>{
         app.listen(port, ()=>{
