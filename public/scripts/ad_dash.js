@@ -74,9 +74,10 @@ function show_bed_reqs_hosp(id) {
                     let idstr = "#bedreq"+item.id.toString();
                     console.log(idstr);
                     $(idstr).click(function(e){
+                        let hid = id;
                         e.preventDefault();
-                        let instructions = $("#instructions "+item.id.toString()).val();
-                        $.post('/complete_bed', {email: item.email, instructions, id: item.id}, (data, status)=>{
+                        let instructions = $("#instructions_"+item.id.toString()).val();
+                        $.post('/complete_bed', {email: item.email, instructions, id: item.id, hosp_id: hid}, (data, status)=>{
                             console.log(status, data);
                             if(status=="success"){
                                 alert("Done!");
