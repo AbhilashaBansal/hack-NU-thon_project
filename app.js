@@ -559,11 +559,11 @@ app.post('/deny_bed', (req,res)=>{
     }
 })
 
-
+const port = process.env.PORT || 3000;
 //syncing db
 db.sync()
     .then(()=>{
-        app.listen(4444, ()=>{
+        app.listen(port, ()=>{
             console.log("Server started successfully at http://localhost:4444 ");
         })
 })
