@@ -154,8 +154,8 @@
             <ul class="footer-links">
               <li><a href="./index.html">Home</a></li>
               <li><a href="https://www.mohfw.gov.in/" target="_blank">Covid-19 India</a></li>
-              <li><a href="./registration.html">Apply for Vaccine</a></li>
-              <li><a href="./registration.html">Request A Bed</a></li>
+              <li><a href="./index.html">Apply for Vaccine</a></li>
+              <li><a href="./index.html">Request A Bed</a></li>
               <li><a href="#help">Helpline</a></li>
             </ul>
           </div>
@@ -237,23 +237,55 @@
 
     })
 
+    let adminlogin=false;
+    $.get('/admin_logged_in', function(data, status){
+        if(data.val){
+          adminlogin=true;
+        }
+    })
+
     $.get('/all_ques', (data, status)=>{
         let ele = $("#que-cards");
         if(status=="success"){
             console.log("here");
             $.each(data, function(index, item){
                 console.log("inside");
+                let btid = "q_"+String(item.id);
+                let txarid = "tx_"+String(item.id);
                 ele.append(
                     `<li style="margin: 1%; background: lavender; padding: 2%;">
                         <p>Posted By: ${item.posted_by_email}</p>
                         <p>Date: ${item.date}</p>
                         <p>Question: ${item.question}</p>
-                        <p>Answer: ${item.answer}</p>
+                        <p>Answer:</p>
+                        <textarea id="${txarid}" readonly style="width: -webkit-fill-available;"></textarea><br>
+                        <button id="${btid}" onclick="changeAnswer(${btid}, ${txarid});">Edit</button>
                     </li>`
                 );
+                $("#"+txarid).prop('value', item.answer);
+
                 // WORKKK
             })
         }
     })
+
+    function changeAnswer(btid, txarid){
+      if($(btid).prop('value')=='Update'){
+        updateAnswerDB(btid, txarid);
+      }
+      else{
+        console.log(btid);
+        $(txarid).attr('readOnly', false);
+        $(btid).prop('value', "Update");
+        $(btid).text("Update");
+      }
+    }
+
+    function updateAnswerDB(btid, txarid){
+      console.log("update answer in DB");
+      $(txarid).attr('readOnly', true);
+      $(btid).prop('value', "Edit");
+      $(btid).text("Edit");
+    }
 </script>
 </html>
