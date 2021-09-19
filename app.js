@@ -22,6 +22,8 @@ app.use("/", express.static(__dirname + '/public'));
 
 
 // requests
+const forum = require('./routes/forum');
+app.use('/forum', forum);
 
 // signup
 app.post('/signup', (req,res)=>{
